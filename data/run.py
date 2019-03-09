@@ -11,6 +11,9 @@ import MySQLdb
 import MySQLdb.cursors
 from config import *
 
+# 改动处，省略掉前面的MYSQLdb和cursors
+import pymysql
+
 app = Flask(__name__)
 app.config.from_object(__name__)
 
@@ -20,6 +23,14 @@ def connectdb():
 	db.autocommit(True)
 	cursor = db.cursor()
 	return (db,cursor)
+
+def connectdb
+	db = pymysql.connect(host=HOST, user=USER, passwd=PASSWORD',
+                       db=DATABASE, port=PORT, charset=CHAREST,cursorclass=pymysql.cursors.DictCursor)
+	cursor = db.cursor()  # 光标对象
+	db.autocommit(True)
+        return (db,cursor)
+
 
 # 关闭数据库
 def closedb(db,cursor):
